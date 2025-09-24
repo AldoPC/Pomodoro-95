@@ -1,0 +1,109 @@
+{
+  "name": "pomodoro-95",
+  "version": "1.0.0",
+  "description": "A Windows 95 style pomodoro timer with classic progress bar",
+  "main": "main.js",
+  "scripts": {
+    "start": "NODE_ENV=development electron .",
+    "dev": "NODE_ENV=development electron . --dev",
+    "prepare-icons": "node build/prepare-icons.js",
+    "build": "npm run prepare-icons && electron-builder",
+    "build:win": "npm run prepare-icons && electron-builder --win",
+    "build:mac": "npm run prepare-icons && electron-builder --mac",
+    "build:linux": "npm run prepare-icons && electron-builder --linux",
+    "build:all": "npm run prepare-icons && electron-builder --win --mac --linux",
+    "dist": "npm run prepare-icons && electron-builder --publish=never",
+    "pack": "npm run prepare-icons && electron-builder --dir"
+  },
+  "keywords": ["pomodoro", "timer", "productivity", "windows", "retro"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.pomodoro.95",
+    "productName": "Pomodoro 95",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!build/**/*",
+      "!.git/**/*",
+      "!README.md"
+    ],
+    "extraResources": [
+      {
+        "from": "sounds/",
+        "to": "sounds/",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "fonts/",
+        "to": "fonts/",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "icon/",
+        "to": "icon/",
+        "filter": ["**/*"]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "Office"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro 95</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="window">
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="title-bar-text" id="titleBarText">Pomodoro 95 - 25:00</div>
+            <div class="title-bar-controls">
+                <button class="title-bar-button" onclick="showSettings()">?</button>
+                <button class="title-bar-button close" onclick="closeApp()">✕</button>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Session Info -->
+            <div class="session-info">
+                <div class="session-type" id="sessionType">Work Session</div>
+                <div class="session-count" id="sessionCount">Session 1 of 4</div>
+            </div>
+
+            <!-- Progress Bar Container -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="controls">
+                <button class="control-button start" id="startButton" onclick="toggleTimer()">Start</button>
+                <button class="control-button reset" onclick="resetTimer()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="timer.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+/* Windows XP/95 Style CSS */
+
+@font-face {
+    font-family: 'Windows Regular';
+    src: url('../fonts/Windows Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Windows Regular', 'MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #cccccc;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Window Frame */
+.window {
+    background: #cccccc;
+    border: 2px outset #cccccc;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title Bar */
+.title-bar {
+    background: #002a99;
+    color: #cccccc;
+    padding: 2px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 13px;
+    height: 22px;
+    -webkit-app-region: drag;
+}
+
+.title-bar-text {
+    flex: 1;
+    padding-left: 2px;
+}
+
+.title-bar-controls {
+    font-family: 'Windows Regular', 'MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    gap: 2px;
+}
+
+.title-bar-button {
+    background: #cccccc;
+    font-weight: bold;
+    border-top: 1px solid #fbfbfb;
+    border-left: 1px solid #fbfbfb;
+    border-bottom: 1px solid #161616;
+    border-right: 1px solid #161616;
+    width: 16px;
+    height: 14px;
+    font-size: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-app-region: no-drag;
+}
+
+.title-bar-button:hover {
+    background: #d4d0c8;
+}
+
+.title-bar-button.close {
+    background: #cccccc;
+    font-weight: bold;
+    border-top: 1px solid #fbfbfb;
+    border-left: 1px solid #fbfbfb;
+    border-bottom: 1px solid #161616;
+    border-right: 1px solid #161616;
+}
+
+.title-bar-button.close:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+/* Content Area */
+.content {
+    background: #cccccc;
+    padding: 6px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Session Info */
+.session-info {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.session-type {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000080;
+    margin-bottom: 4px;
+}
+
+.session-count {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Progress Bar Container */
+.progress-container {
+    margin: 4px 0;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background: #cccccc;
+    border-top: 2px solid #9f9f9f;
+    border-left: 2px solid #9f9f9f;
+    border-bottom: 2px solid #fbfbfb;
+    border-right: 2px solid #fbfbfb;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.progress-fill {
+    height: calc(100% - 4px);
+    width: 0%;
+    background: #002a99;
+    transition: width 0.1s ease;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    overflow: hidden;
+}
+
+/* Segmented Progress Bar Effect */
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 7px,
+        #cccccc 7px,
+        #cccccc 8px
+    );
+}
+
+/* Removed progress-text and time-remaining styles */
+
+/* Control Buttons */
+.controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.control-button {
+    background: #cccccc;
+    padding: 6px 14px;
+    font-family: 'Windows Regular', 'MS Sans Serif', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    min-width: 70px;
+    border-top: 2px solid #fbfbfb;
+    border-left: 2px solid #fbfbfb;
+    border-bottom: 2px solid #161616;
+    border-right: 2px solid #161616;
+}
+
+.control-button:hover {
+    background: #d4d0c8;
+}
+
+.control-button:active {
+    border: 2px inset #cccccc;
+    background: #a0a0a0;
+}
+
+.control-button.start {
+    background: #cccccc;
+}
+
+.control-button.start.running {
+    background: #ff6b6b;
+    color: white;
+}
+
+.control-button.start.running:hover {
+    background: #ff5252;
+}
+
+/* Settings Window */
+.settings-window {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.setting-group.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.setting-group label {
+    font-weight: bold;
+    font-size: 11px;
+    color: #000;
+}
+
+.setting-group input {
+    background: white;
+    border: 2px inset #c0c0c0;
+    padding: 2px 4px;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    width: 100%;
+}
+
+.setting-group input:focus {
+    outline: none;
+    border: 2px inset #0a246a;
+}
+
+.setting-group input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    margin: 0;
+    transform: scale(1.2);
+}
+
+.settings-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.control-button.save {
+    background: #cccccc;
+}
+
+.control-button.cancel {
+    background: #cccccc;
+}
+
+/* Work Session Colors */
+.work-session .progress-fill {
+    background: #002a99;
+}
+
+.work-session .session-type {
+    color: #101010;
+}
+
+/* Break Session Colors */
+.break-session .progress-fill {
+    background: #002a99;
+}
+
+.break-session .session-type {
+    color: #101010;
+}
+
+/* Long Break Session Colors */
+.long-break-session .progress-fill {
+    background: #002a99;
+}
+
+.long-break-session .session-type {
+    color: #101010;
+}
+

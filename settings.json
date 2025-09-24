@@ -1,0 +1,7 @@
+{
+  "workDuration": 1,
+  "breakDuration": 5,
+  "longBreakDuration": 15,
+  "sessionsPerCycle": 4,
+  "alwaysOnTop": true
+}

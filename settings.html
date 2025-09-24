@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro 95 - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="window settings-window">
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="title-bar-text">Settings</div>
+            <div class="title-bar-controls">
+                <button class="title-bar-button close" onclick="closeSettings()">✕</button>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <div class="settings-form">
+                <div class="setting-group">
+                    <label for="workDuration">Work Duration (minutes):</label>
+                    <input type="number" id="workDuration" min="1" max="60" value="25">
+                </div>
+
+                <div class="setting-group">
+                    <label for="breakDuration">Break Duration (minutes):</label>
+                    <input type="number" id="breakDuration" min="1" max="30" value="5">
+                </div>
+
+                <div class="setting-group">
+                    <label for="longBreakDuration">Long Break Duration (minutes):</label>
+                    <input type="number" id="longBreakDuration" min="1" max="60" value="15">
+                </div>
+
+                <div class="setting-group">
+                    <label for="sessionsPerCycle">Sessions per Cycle:</label>
+                    <input type="number" id="sessionsPerCycle" min="1" max="10" value="4">
+                </div>
+
+                <div class="setting-group checkbox-group">
+                    <label for="alwaysOnTop">Always on Top:</label>
+                    <input type="checkbox" id="alwaysOnTop">
+                </div>
+
+                <div class="settings-buttons">
+                    <button class="control-button save" onclick="saveSettings()">Save</button>
+                    <button class="control-button cancel" onclick="closeSettings()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
