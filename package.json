@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=development electron .",
     "dev": "NODE_ENV=development electron . --dev",
-    "prepare-icons": "node build/prepare-icons.js",
+    "prepare-icons": "node scripts/prepare-icons.js",
     "build": "npm run prepare-icons && electron-builder",
     "build:win": "npm run prepare-icons && electron-builder --win",
     "build:mac": "npm run prepare-icons && electron-builder --mac",
@@ -15,7 +15,13 @@
     "dist": "npm run prepare-icons && electron-builder --publish=never",
     "pack": "npm run prepare-icons && electron-builder --dir"
   },
-  "keywords": ["pomodoro", "timer", "productivity", "windows", "retro"],
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "productivity",
+    "windows",
+    "retro"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
@@ -41,17 +47,23 @@
       {
         "from": "sounds/",
         "to": "sounds/",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       },
       {
         "from": "fonts/",
         "to": "fonts/",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       },
       {
         "from": "icon/",
         "to": "icon/",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "mac": {
@@ -59,11 +71,17 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         },
         {
           "target": "zip",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "icon": "build/icon.icns"
@@ -72,28 +90,40 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         },
         {
           "target": "portable",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         }
       ],
-      "icon": "build/icon.png"
+      "icon": "build/icon.ico"
     },
     "linux": {
       "target": [
         {
           "target": "AppImage",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "deb",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "rpm",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "build/icon.png",
@@ -105,5 +135,8 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }
+  },
+  "allowScripts": {
+    "electron@27.3.11": true
   }
 }
